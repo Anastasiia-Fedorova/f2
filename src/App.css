@@ -1,38 +1,355 @@
-.App {
-  text-align: center;
-}
+/* Sidebar.css */
 
-.App-logo {
-  height: 40vmin;
-  pointer-events: none;
-}
-
-@media (prefers-reduced-motion: no-preference) {
-  .App-logo {
-    animation: App-logo-spin infinite 20s linear;
+.sidebar {
+    width: 200px;
+    background-color: #ffffff;
+    margin-right: 20px;
+    border-right: 1px solid #eee;
+    height: 100vh;
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
   }
-}
 
-.App-header {
-  background-color: #282c34;
-  min-height: 100vh;
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  justify-content: center;
-  font-size: calc(10px + 2vmin);
-  color: white;
-}
-
-.App-link {
-  color: #61dafb;
-}
-
-@keyframes App-logo-spin {
-  from {
-    transform: rotate(0deg);
+  .sidebar-inner {
+    padding: 20px;
+    width: 200px;
+    height: 100vh;
+    background-color: #ffffff;
+    position: fixed;
+    z-index: 22;
   }
-  to {
-    transform: rotate(360deg);
+
+  .sidebar-logo {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    font-size: 28px;
+    font-weight: 600;
+    height: 50px;
+    margin-bottom: 40px;
   }
+
+  .sidebar-logo span {
+    color: #343C6A;
+    margin-left: 10px;
+  }
+  
+  .sidebar-item {
+    display: flex;
+    align-items: center;
+    padding: 15px 10px;
+    cursor: pointer;
+    border-radius: 8px;
+    transition: background-color 0.3s;
+    color: #888;
+  }
+  
+  .sidebar-item:hover {
+    background-color: #f5f5f5;
+  }
+  
+  .sidebar-item.active {
+    color: #2979ff;
+    font-weight: bold;
+  }
+
+  .log-out {
+    position: absolute;
+    bottom: 50px;
+    right: 20px;
+    display: flex;
+    align-items: center;
+    padding: 15px 10px;
+    cursor: pointer;
+    border-radius: 8px;
+    transition: background-color 0.3s;
+    color: #706969;
+  }
+
+  .log-out-img {
+    width: 24px;
+    height: 24px;
+    margin-left: 10px;
+  }
+
+  .log-out-img img {
+    width: 100%;
+  }
+
+  .log-out:hover {
+    background-color: #f5f5f5;
+  }
+  
+  .icon {
+    font-size: 1.5rem;
+    margin-right: 15px;
+  }
+  
+  .text {
+    font-size: 1rem;
+  }
+  
+  .logo {
+    font-size: 1.5rem;
+    color: #3f51b5;
+    font-weight: bold;
+    margin-bottom: 20px;
+  }
+  
+  .menu {
+    list-style: none;
+    padding: 0;
+  }
+  
+  .menu li {
+    padding: 10px 0;
+    color: #555;
+    cursor: pointer;
+  }
+  
+  .header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-bottom: 20px;
+    background: #fff;
+    height: 50px;
+    font-size: 28px;
+    font-weight: 600;
+    padding: 20px 35px;
+  }
+
+  .header h2 {
+    margin-left: 25px;
+  }
+
+  .header-details {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    width: 50px;
+    height: 50px;
+    border-radius: 50%;
+    background: #F5F7FA;
+  }
+  
+  /* SearchBar.css */
+
+.search-bar {
+    display: flex;
+    align-items: center;
+    background: #f5f7fa;
+    border-radius: 25px;
+    padding: 10px 15px;
+    width: 300px;
+    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+  }
+  
+  .search-icon {
+    font-size: 1.2rem;
+    color: #9aa5b1;
+    margin-right: 10px;
+  }
+  
+  .search-input {
+    border: none;
+    outline: none;
+    background-color: transparent;
+    width: 100%;
+    font-size: 1rem;
+    color: #607d8b;
+  }
+  
+  .search-input::placeholder {
+    color: #9aa5b1;
+  }
+  .profile {
+    display: flex;
+    align-items: center;
+    gap: 15px;
+  }
+  
+  .profile-pic {
+    background: gray;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    width: 50px;
+    height: 50px;
+    border-radius: 50%;
+  }
+
+  .profile-pic img {
+    width: 100%;
+    height: 100%;
+    border-radius: 50%;
+  }
+
+  /* DashboardSummary.css */
+
+.summary-cards {
+    display: flex;
+    justify-content: space-between;
+    gap: 20px;
+  }
+  
+  .card {
+    display: flex;
+    justify-content: space-around;
+    align-items: center;
+    /* flex: 1; */
+    width: 30%;
+    background-color: #fff;
+    color: #718EBF;
+    padding: 20px;
+    border-radius: 12px;
+    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+    text-align: center;
+  }
+
+  .card-img {
+    width: 70px;
+    height: 70px;
+    border-radius: 50%;
+    background: #FFF5D9;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+  }
+
+  .card-img-income {
+    background: #E7EDFF;
+  }
+
+  .card-img-expense {
+    background: #FFE0EB;
+  }
+
+  .card-img-savings {
+    background: #DCFAF8;
+  }
+  
+  .card span {
+    display: block;
+    font-size: 1.2rem;
+    color: #333;
+    font-weight: 600;
+    margin-top: 7px;
+  }
+/* transaction list */
+
+  /* TransactionsList.css */
+
+.transactions-card {
+    flex: 1;
+    background-color: #ffffff;
+    padding: 20px;
+    border-radius: 16px;
+    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+    margin-bottom: 20px;
+  }
+  
+  .transactions-title {
+    color: #333B69;
+    font-size: 20px;
+    font-weight: bold;
+    margin-bottom: 20px;
+    margin-top: 10px;
+  }
+  
+  .transactions-list {
+    list-style: none;
+    padding: 0;
+    margin: 0;
+  }
+
+
+  .transaction-item {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    padding: 10px 0;
+    border-bottom: 1px solid #eee;
+  }
+  
+  .transaction-item:last-child {
+    border-bottom: none;
+  }
+  
+  .transaction-icon {
+    width: 60px;
+    height: 55px;
+    border-radius: 30%;
+    background: #DCFAF8;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 1.5rem;
+    color: #00796b;
+  }
+  
+  .transaction-details {
+    flex-grow: 1;
+    margin-left: 10px;
+  }
+  
+  .transaction-title {
+    font-size: 1rem;
+    color: #333;
+    font-weight: 500;
+  }
+  
+  .transaction-date {
+    display: block;
+    font-size: 0.85rem;
+    color: #888;
+    margin-top: 10px;
+  }
+  
+  .transaction-category {
+    font-size: 0.9rem;
+    color: #78909c;
+    margin-right: 10px;
+  }
+  
+  .transaction-amount {
+    font-size: 1rem;
+    font-weight: bold;
+  }
+  
+  .transaction-amount.negative {
+    color: #e57373;
+  }
+  
+  .transaction-amount.positive {
+    color: #4caf50;
+  }
+
+  /* BalanceHistory.css */
+.balance-graf {
+  width: 550px;
+  height: 300px;
+  background: #fff;
+  border-radius: 15px;
+  padding: 20px;
+  padding-bottom: 40px;
+  box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
 }
+
+  /* ExpenseStatistics.css */
+
+.statistics {
+    width: 550px;
+    height: 605px;
+    background-color: #fff;
+    padding: 20px;
+    border-radius: 12px;
+    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+  }
+  
+  .pie-chart-placeholder {
+    height: auto;
+    background: #fff;
+    border-radius: 8px;
+  }
