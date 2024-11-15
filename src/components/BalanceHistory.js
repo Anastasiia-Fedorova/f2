@@ -1,22 +1,3 @@
-// import React from 'react';
-// import balanceGrafic from '../img/balanceGrafic.svg';
-
-// const BalanceHistory = () => {
-//   return (
-//     <>
-//     <h3  className="transactions-title">Balance History (img temporary)</h3>
-//       <div className="history">
-      
-//       <div className="graph-placeholder">
-//         <img src={balanceGrafic}/>
-//       </div>
-//     </div>
-//   </>
-//   );
-// };
-
-// export default BalanceHistory;
-
 import React from 'react';
 import {
   AreaChart,

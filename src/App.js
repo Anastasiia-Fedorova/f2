@@ -1,12 +1,10 @@
 import './App.css';
 import { createBrowserHistory } from 'history';
 import { Main } from './routing/Routes';
-//import { store } from './store/store';
 import { store } from './store/store';
 import { getDashboard } from './store/actions/getDashboardAction';
-import { Provider, useDispatch, useSelector } from 'react-redux'
-import { useEffect, useState } from 'react'
-import axios from 'axios';
+import { Provider, useDispatch} from 'react-redux'
+import { useEffect} from 'react'
 
 
 export let history = createBrowserHistory();

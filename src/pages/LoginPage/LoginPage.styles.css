@@ -83,6 +83,13 @@ body {
     padding: 0 0.25rem;
   }
 
+  .error-messade-login {
+    height: 20px;
+    color: red;
+    font-size: 15px;
+    margin-bottom: 20px;
+  }
+
   .password-toggle {
     width: 24px;
     position: absolute;
@@ -110,6 +117,17 @@ body {
   .login-button:hover {
     background-color: #303f9f;
   }
+
+  .login-button:disabled{
+    background-color: #cccccc; /* Сірий колір фону для заблокованої кнопки */
+    color: #666666; /* Сірий колір тексту */
+    cursor: not-allowed; /* Курсор "заборонено" */
+    opacity: 0.6; /* Знижена прозорість для заблокованої кнопки */
+  }
+
+  .registration-button {
+    margin-top: 20px;
+  }
   
   .signup-text {
     margin-top: 1.5rem;
@@ -128,9 +146,9 @@ body {
 
 
   .error-message {
-    height: 25px;
+    /* height: 20px; */
     color: red;
-    font-size: 10px;
+    font-size: 12px;
     margin-top: 5px;
     margin-bottom: 10px;
   }

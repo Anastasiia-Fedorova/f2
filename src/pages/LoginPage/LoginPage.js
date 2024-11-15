@@ -12,6 +12,7 @@ export const LoginForm = () => {
     const [email, setEmail] = useState('');
     const [password, setPassword] = useState('');
     const [showPass, setShowPass] = useState(false);
+    const [errorMessage, setErrorMessage] = useState('');
     const navigate = useNavigate();
 
     const postForm = async (event)  =>{
@@ -39,11 +40,11 @@ export const LoginForm = () => {
         if (result) {
           let user_id = result;
           store.dispatch(actionAuthLogin(user_id));
-          console.log('Done ' + result);
           navigate('/dashboard');
         }
       } catch (error) {
         console.error('Error:', error);
+        setErrorMessage('User not found. Wrong email or password');
       }
       
     }
@@ -74,20 +75,23 @@ export const LoginForm = () => {
             className="login-input"
             placeholder="***********"
             required
-            value={password} onChange={e => setPassword(e.target.value)}
+            value={password} onChange={e => {
+              setErrorMessage('');
+              setPassword(e.target.value)
+            }}
           />
           <label className="login-label">Password</label>
-            <div onClick={() => setShowPass(!showPass)}>
+            <div onClick={() => {
+              setShowPass(!showPass);
+            }}>
               <img
               className="password-toggle"
               
               src={showPass ? eyeopen : eyeclosed }
               />
             </div>
-            
-           
-          
         </div>
+        <p className='error-messade-login'>{errorMessage}</p>
 
         <button className="login-button" type='submit'>
           SIGN IN
