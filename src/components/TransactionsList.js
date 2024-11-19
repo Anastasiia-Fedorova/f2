@@ -4,12 +4,15 @@ import money from '../img/mon.png'
 
 const TransactionsList = () => {
   const lastTransactions = useSelector(state =>  state?.promiseReducer?.dashboard_info?.transactions);
+
   return (
     <>
       <h3 className="transactions-title">Last Transactions</h3>
       <div className="transactions-card">
         <ul className="transactions-list">
-        {lastTransactions?.map((transaction, index) => (
+        {lastTransactions?.slice(0,3)?.map((transaction, index) => {
+          console.log(index);
+        return (
           <li key={index} className="transaction-item">
             <div className="transaction-icon">
               <img src={money}/>
@@ -29,7 +32,8 @@ const TransactionsList = () => {
               {transaction?.type === 'expense' ? `-$${Math.abs(transaction?.amount)}` : `+$${transaction?.amount}`}
             </div>
           </li>
-        ))}
+        )
+        })}
       </ul>
     </div>
   </>

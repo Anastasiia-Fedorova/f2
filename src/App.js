@@ -3,7 +3,7 @@ import { createBrowserHistory } from 'history';
 import { Main } from './routing/Routes';
 import { store } from './store/store';
 import { getDashboard } from './store/actions/getDashboardAction';
-import { Provider, useDispatch} from 'react-redux'
+import { Provider, useDispatch, useSelector} from 'react-redux'
 import { useEffect} from 'react'
 
 
@@ -16,10 +16,12 @@ function App() {
       dispatch(getDashboard(localStorage.user_id))
   }, []);
 
+  const auth = useSelector((state) => state?.authReducer);
+
 
   return (
     <Provider store={store}>
-      <Main/>
+      <Main auth={auth}/>
     </Provider>
   );
 }
