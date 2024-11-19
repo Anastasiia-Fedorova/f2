@@ -3,24 +3,20 @@ import { history } from '../App';
 import Dashboard from '../pages/dashboardpage/Dashboard';
 import { LoginForm } from '../pages/LoginPage/LoginPage';
 import { RegistrationForm } from '../pages/RegistrationPage/RegistrationPage';
+import { IncomePage } from '../pages/incomespage/IncomePage';
 
 const PrivateRoute = ({ children, auth }) => {
-  // Якщо користувач не залогінений, перенаправляємо на сторінку логіну
   if (!auth?.user_id) {
     return <Navigate to="/signin" />;
   }
-
-  // Якщо залогінений, відображаємо запитувану сторінку
   return children;
 };
 
 const GuestRoute = ({ children, auth }) => {
-  // Якщо користувач залогінений, перенаправляємо на дашборд
   if (auth?.user_id) {
     return <Navigate to="/dashboard" />;
   }
 
-  // Якщо не залогінений, відображаємо запитувану сторінку
   return children;
 };
 
@@ -53,6 +49,15 @@ export const Main = ({auth}) =>
             element={
               <PrivateRoute auth={auth}>
                 <Dashboard />
+              </PrivateRoute>
+            }
+          />
+
+          <Route
+            path="/incomes"
+            element={
+              <PrivateRoute auth={auth}>
+                <IncomePage/>
               </PrivateRoute>
             }
           />

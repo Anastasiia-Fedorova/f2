@@ -7,14 +7,6 @@ import { actionAuthLogout } from '../store/reducers/authReducer';
 import { useNavigate } from 'react-router-dom';
 
 
-const menuItems = [
-  { id: 1, name: 'Dashboard', icon: '🏠', active: true },
-  { id: 2, name: 'Transactions',  active: false },
-  { id: 3, name: 'Add Expense',  active: false },
-  { id: 4, name: 'Add Income',  active: false },
-  { id: 5, name: 'Category', active: false },
-  { id: 6, name: 'Reports',  active: false },
-];
 
 const Sidebar = () => {
   const [activeItem, setActiveItem] = useState('Dashboard');
@@ -26,25 +18,78 @@ const Sidebar = () => {
   const navigate = useNavigate();
 
   return (
+
+
+
     <div className="sidebar">
-      <div className="sidebar-inner"> 
+    <div className="sidebar-inner"> 
         <div className='sidebar-logo'>
           <img src={logo}/>
           <span>FinTracker</span>
 
         </div>
-        {menuItems.map((item) => (
-          <div
-            key={item.id}
-            className={`sidebar-item ${activeItem === item.name ? 'active' : ''}`}
-            onClick={() => handleItemClick(item.name)}
-          >
-            <img src={side} className="icon"/>
-            <span className="text">{item.name}</span>
-          </div>
-        ))}
 
-        <div className='log-out'
+      <div
+        key="1"
+        className={`sidebar-item ${activeItem === 'Dashboard' ? 'active' : ''}`}
+        onClick={() => handleItemClick('Dashboard')}
+      >
+        <img src={side} className="icon" alt="icon" />
+        <span className="text">Dashboard</span>
+      </div>
+
+      <div
+        key="2"
+        className={`sidebar-item ${activeItem === 'Transactions' ? 'active' : ''}`}
+        onClick={() => handleItemClick('Transactions')}
+      >
+        <img src={side} className="icon" alt="icon" />
+        <span className="text">Transactions</span>
+      </div>
+
+      <div
+        key="3"
+        className={`sidebar-item ${activeItem === 'Add Expense' ? 'active' : ''}`}
+        onClick={() => handleItemClick('Add Expense')}
+      >
+        <img src={side} className="icon" alt="icon" />
+        <span className="text">Add Expense</span>
+      </div>
+
+
+      <div
+        key="4"
+        className={`sidebar-item ${activeItem === 'Add Income' ? 'active' : ''}`}
+        onClick={() => {
+          handleItemClick('Add Income');
+          navigate('/incomes');
+        }}
+      >
+        <img src={side} className="icon" alt="icon" />
+        <span className="text">Add Income</span>
+      </div>
+
+ 
+      <div
+        key="5"
+        className={`sidebar-item ${activeItem === 'Category' ? 'active' : ''}`}
+        onClick={() => handleItemClick('Category')}
+      >
+        <img src={side} className="icon" alt="icon" />
+        <span className="text">Category</span>
+      </div>
+
+ 
+      <div
+        key="6"
+        className={`sidebar-item ${activeItem === 'Reports' ? 'active' : ''}`}
+        onClick={() => handleItemClick('Reports')}
+      >
+        <img src={side} className="icon" alt="icon" />
+        <span className="text">Reports</span>
+      </div>
+      
+      <div className='log-out'
           onClick={() => {
             store.dispatch(actionAuthLogout());
             navigate('/signin');
@@ -52,8 +97,9 @@ const Sidebar = () => {
           <span>Log out</span>
           <div className='log-out-img'><img src={logout}/></div>
         </div>
-      </div>
     </div>
+  </div>
+
   );
 };
 

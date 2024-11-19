@@ -1,15 +1,10 @@
 import {SET_DASHBOARD} from '../actions/getDashboardAction'
-// import {SET_FORECAST} from '../actions/getDashboardAction'
-// import { SET_AQ } from '../actions/getAQ';
-// import { SET_SAVEDCITY } from '../actions/getSavedCityAction';
-// import { SET_CHANGE_THEME } from '../actions/changeTheme';
-// import { SET_SEARCH_CITY } from '../actions/searchCity';
+import { SET_INCOME } from '../actions/getIncomeActions';
 
 
 const initialState = {
     dashboard_info: undefined, 
-    // forecast: undefined,
-    // aq: undefined,
+    incomes: undefined,
 };
 
 export let promiseReducer =  (state = initialState, action) => {
@@ -17,12 +12,9 @@ export let promiseReducer =  (state = initialState, action) => {
         case SET_DASHBOARD:
             const {dashboard_info} = action;
             return {...state, dashboard_info}
-        // case SET_AQ:
-        //     const {aq} = action;
-        //     return {...state, aq}
-        // case SET_FORECAST:
-        //     const {forecast} = action;
-        //     return {...state, forecast}
+        case SET_INCOME:
+            const {incomes} = action;
+            return {...state, incomes}
 
         default:
             return state;

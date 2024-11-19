@@ -11,7 +11,6 @@ const TransactionsList = () => {
       <div className="transactions-card">
         <ul className="transactions-list">
         {lastTransactions?.slice(0,3)?.map((transaction, index) => {
-          console.log(index);
         return (
           <li key={index} className="transaction-item">
             <div className="transaction-icon">
