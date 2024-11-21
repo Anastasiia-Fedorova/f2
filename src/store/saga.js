@@ -2,6 +2,7 @@ import {put, call, takeLatest} from 'redux-saga/effects';
 import axios from 'axios';
 import {GET_DASHBOARD, setDashboard} from './actions/getDashboardAction';
 import { GET_INCOME, setIncome } from './actions/getIncomeActions';
+import { GET_EXPENSES, setExpenses } from './actions/getExpensesActions';
 
 
 
@@ -13,7 +14,6 @@ export function* handleGetDashboard(action) {
     try{
         const response = yield call(() => requestGetDashboard(action.user_id));
         const {data} = response;
-        console.log(data);
         yield put(setDashboard(data));
     } catch(error) {
         console.log(error);
@@ -35,7 +35,23 @@ export function* handleGetIncomes(action) {
     }
 }
 
+export async function requestGetExpenses(user_id) {
+    return axios.get(`https://fintracker-cpbg.onrender.com/expenses/${user_id}`)
+}
+
+export function* handleGetExpenses(action) {
+    try{
+        const response = yield call(() => requestGetExpenses(action.user_id));
+        const {data} = response;
+        console.log(data);
+        yield put(setExpenses(data));
+    } catch(error) {
+        console.log(error);
+    }
+}
+
 export function* watcherSaga () {
     yield takeLatest(GET_DASHBOARD, handleGetDashboard);
     yield takeLatest(GET_INCOME, handleGetIncomes);
+    yield takeLatest(GET_EXPENSES, handleGetExpenses);
 }

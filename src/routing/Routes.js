@@ -4,6 +4,7 @@ import Dashboard from '../pages/dashboardpage/Dashboard';
 import { LoginForm } from '../pages/LoginPage/LoginPage';
 import { RegistrationForm } from '../pages/RegistrationPage/RegistrationPage';
 import { IncomePage } from '../pages/incomespage/IncomePage';
+import { ExpensesPage } from '../pages/expensespage/ExpensesPage';
 
 const PrivateRoute = ({ children, auth }) => {
   if (!auth?.user_id) {
@@ -27,16 +28,14 @@ export const Main = ({auth}) =>
       
         <Routes>
         
-        <Route
-            path="/signin"
+          <Route path="/signin"
             element={
               <GuestRoute auth={auth}>
                 <LoginForm />
               </GuestRoute>
             }
           />
-          <Route
-            path="/signup"
+          <Route path="/signup"
             element={
               <GuestRoute auth={auth}>
                 <RegistrationForm />
@@ -44,8 +43,7 @@ export const Main = ({auth}) =>
             }
           />
 
-          <Route
-            path="/dashboard"
+          <Route path="/dashboard"
             element={
               <PrivateRoute auth={auth}>
                 <Dashboard />
@@ -53,22 +51,22 @@ export const Main = ({auth}) =>
             }
           />
 
-          <Route
-            path="/incomes"
+          <Route path="/incomes"
             element={
               <PrivateRoute auth={auth}>
                 <IncomePage/>
               </PrivateRoute>
             }
           />
+          <Route path="/expenses"
+            element={
+              <PrivateRoute auth={auth}>
+                <ExpensesPage/>
+              </PrivateRoute>
+            }
+          />
 
           <Route path="/" element={<Navigate to="/signin" />} />
-          {/* <Route path={'/'} element={<LoginForm/>} />
-          <Route path={'/signin'} element={<LoginForm/>} />
-          <Route path={'/signup'} element={<RegistrationForm/>} />
-          <Route path={'/dashboard'} element={<Dashboard/>} /> */}
-
-          {/* <Route exact path="/"> <Navigate to="/login" /> </Route> */}
         </Routes>
     
     </BrowserRouter>

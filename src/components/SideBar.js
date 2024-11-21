@@ -50,7 +50,10 @@ const Sidebar = () => {
       <div
         key="3"
         className={`sidebar-item ${activeItem === 'Add Expense' ? 'active' : ''}`}
-        onClick={() => handleItemClick('Add Expense')}
+        onClick={() => {
+          navigate('/expenses');
+          handleItemClick('Add Expense')
+        }}
       >
         <img src={side} className="icon" alt="icon" />
         <span className="text">Add Expense</span>

@@ -1,10 +1,12 @@
 import {SET_DASHBOARD} from '../actions/getDashboardAction'
+import { SET_EXPENSES } from '../actions/getExpensesActions';
 import { SET_INCOME } from '../actions/getIncomeActions';
 
 
 const initialState = {
     dashboard_info: undefined, 
     incomes: undefined,
+    expenses: undefined,
 };
 
 export let promiseReducer =  (state = initialState, action) => {
@@ -15,6 +17,9 @@ export let promiseReducer =  (state = initialState, action) => {
         case SET_INCOME:
             const {incomes} = action;
             return {...state, incomes}
+        case SET_EXPENSES:
+            const {expenses} = action;
+            return {...state, expenses}
 
         default:
             return state;
