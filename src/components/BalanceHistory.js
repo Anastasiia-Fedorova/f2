@@ -9,17 +9,22 @@ import {
   ResponsiveContainer
 } from 'recharts';
 
-const data = [
-  { month: 'May', value: 200 },
-  { month: 'Jun', value: 400 },
-  { month: 'Jul', value: 600 },
-  { month: 'Aug', value: 800 },
-  { month: 'Sep', value: 500 },
-  { month: 'Oct', value: 700 },
-  { month: 'Nov', value: 650 },
-];
 
-const BalanceHistoryChart = () => {
+const processBalanceHistory = (balanceHistory) => {
+  const result = [];
+  for (const month in balanceHistory) {
+    if (balanceHistory.hasOwnProperty(month)) {
+      result.push({
+        month: month.charAt(0).toUpperCase() + month.slice(1, 3).toLowerCase(), // Скорочення місяця
+        value: balanceHistory[month],
+      });
+    }
+  }
+  return result;
+};
+const BalanceHistoryChart = (balanceHistory={}) => {
+  const data = processBalanceHistory(balanceHistory.balanceHistory);
+
   return (
     <div className='balance-graf'>
       <h3 style={{ color: '#4a4a8e', marginBottom: '20px' }}>Balance History</h3>

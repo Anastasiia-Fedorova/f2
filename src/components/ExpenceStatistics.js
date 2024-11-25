@@ -1,21 +1,3 @@
-// import React from 'react';
-// import statistic from '../img/statistic.svg'
-
-// const ExpenseStatistics = () => {
-//   return (
-//     <div>
-//     <h3  className="transactions-title">Expense Statistics (img)</h3>
-//     <div className="statistics">
-    
-//     <div className="pie-chart-placeholder">
-//       <img src={statistic}/>
-//     </div>
-//   </div>
-//   </div>
-//   );
-// };
-
-// export default ExpenseStatistics
 import React from 'react';
 import {
   PieChart,
@@ -26,15 +8,51 @@ import {
   Legend
 } from 'recharts';
 
-const data = [
-  { name: 'Donations', value: 1200, color: '#ff00ff' }, // Фіолетовий
-  { name: 'Food', value: 1345, color: '#1e90ff' }, // Синій
-  { name: 'Clothes', value: 500, color: '#20c997' }, // Зелений
-];
 
-const COLORS = ['#ff00ff', '#1e90ff', '#20c997'];
+const processTransactions = (transactions = [], threshold = 800) => {
+  // тільки витрати
+  const expenses = transactions?.filter(transaction => transaction.type === "expense");
 
-const CustomPieChart = () => {
+  // Групуємо витрати за категоріями
+  const grouped = expenses?.reduce((acc, transaction) => {
+    if (!acc[transaction.category]) {
+      acc[transaction.category] = 0;
+    }
+    acc[transaction.category] += transaction.amount;
+    return acc;
+  }, {});
+
+  //  об'єднуємо дрібні транзакції
+  const result = [];
+  let otherTotal = 0;
+
+  Object.entries(grouped).forEach(([category, total]) => {
+    if (total > threshold) {
+      result.push({ name: category, value: total });
+    } else {
+      otherTotal += total;
+    }
+  });
+
+  // категорія Other для дрібних транзакцій
+  if (otherTotal > 0) {
+    result.push({ name: "Other", value: otherTotal });
+  }
+
+  return result;
+};
+
+
+const COLORS = ["#0088FE", "#00C49F", "#FFBB28", "#FF8042", "#FF6347", "#AF19FF"];
+
+
+
+const CustomPieChart = ({transactions}) => {
+  
+
+  // Обробка транзакцій
+  const data = processTransactions(transactions, 1000);
+
   return (
     <div>
       <div className="transactions-title">
@@ -48,11 +66,11 @@ const CustomPieChart = () => {
               data={data}
               dataKey="value"
               nameKey="name"
-              cx="50%"
+              cx="65%"
               cy="50%"
               innerRadius={110}
-              outerRadius={200}
-              label={({ percent }) => `${(percent * 100).toFixed(0)}%`}
+              outerRadius={180}
+              label={({ percent, name }) => `${name} ${(percent * 100).toFixed(0)}%`}
               labelLine={false}
               paddingAngle={5}
             >
@@ -61,7 +79,7 @@ const CustomPieChart = () => {
               ))}
             </Pie>
             <Tooltip />
-            <Legend verticalAlign="middle" align="right" layout="vertical" />
+            <Legend verticalAlign="top" align="right" layout="vertical" />
           </PieChart>
         </ResponsiveContainer>
       </div>
