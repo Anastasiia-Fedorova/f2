@@ -1,0 +1,44 @@
+.income-outside {
+    display: flex;
+    font-family: Arial, sans-serif;
+}
+
+.income-inner {
+    width: 1200px;
+    margin-left: 50px;
+}
+
+.income-span {
+    font-weight: 600;
+    font-size: 20px;
+    margin-bottom: 10px;
+    margin-top: 10px;
+}
+
+.income-data {
+    width: 100%;
+    display: flex;
+    justify-content: space-between;
+}
+
+.income-form-outer {
+    width: 60%;
+    height: auto;
+}
+
+.income-form {
+    height: 330px;
+    background: white;
+    border-radius: 12px;
+}
+
+.income-diagram-outer {
+    width: 35%;
+    height: auto;
+}
+.income-diagram {
+
+    height: 330px;
+    background: white;
+    border-radius: 12px;
+}

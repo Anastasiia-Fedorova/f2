@@ -7,7 +7,6 @@ import TransactionsList from '../../components/TransactionsList';
 import BalanceHistory from '../../components/BalanceHistory';
 import ExpenseStatistics from '../../components/ExpenceStatistics';
 import { useDispatch, useSelector } from 'react-redux';
-import { store } from '../../store/store';
 import { getDashboard } from '../../store/actions/getDashboardAction';
 
 function Dashboard() {
