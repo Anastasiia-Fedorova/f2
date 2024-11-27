@@ -1,0 +1,16 @@
+.income-expense-form-root {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    grid-template-rows: 1fr 1fr;
+    padding: 24px 30px;
+    background-color: white;
+    border-radius: 25px;
+    column-gap: 22px;
+    row-gap: 30px;
+}
+
+.income-expense-form-save-button-container {
+    grid-column: 2 / 3;
+    display: flex;
+    justify-content: flex-end;
+}

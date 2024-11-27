@@ -1,0 +1,118 @@
+.transactions-list-root {
+    display: flex;
+    background-color: white;
+    flex-wrap: wrap;
+    border-radius: 25px;
+    box-shadow: 0 4px 4px 0 rgba(0, 0, 0, 0.25);
+}
+
+.transactions-list-header {
+    display: grid;
+    grid-template-columns: 3fr 3fr 2fr 1fr;
+    padding: 24px 30px;
+    width: 100%;
+    border-bottom: 1px solid #E6EFF5;
+
+    &> span {
+        color: #718EBF;
+        font-size: 16px;
+        font-weight: 500;
+    }
+}
+
+
+.transactions-list-item {
+    display: grid;
+    grid-template-columns: 3fr 3fr 2fr 1fr;;
+    padding: 0 30px;
+    border-bottom: 1px solid #E6EFF5;
+    height: 70px;
+
+    &> span {
+        font-size: 16px;
+        font-weight: 400;
+        color: #232323;
+    }
+}
+
+.transaction-list-item-column {
+    display: flex;
+    align-items: center;
+}
+
+.transactions-list-item:last-child {
+    border-bottom: none;
+}
+
+.transactions-list-items-list {
+    overflow-y: auto;
+    max-height: 330px;
+    width: 100%;
+}
+
+.transactions-list-item-description-container {
+    display: flex;
+    align-items: center;
+    gap: 14px;
+}
+
+.transactions-list-item-description-container.income>svg {
+    transform: rotate(180deg);
+}
+
+.transaction-list-item-income-icon-container {
+    display: flex;
+    align-items: center;
+    gap: 8px;
+}
+
+.transaction-list-item-income-icon  {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    width: 60px;
+    height: 60px;
+    border-radius: 20px
+}
+
+.transaction-list-item-income-icon.yellow {
+    background-color: #FFF5D9;
+}
+
+.transaction-list-item-income-icon.yellow>svg>path {
+    fill: #FFBB38;
+}
+
+.transaction-list-item-income-icon.blue {
+    background-color: #E7EDFF;
+}
+
+.transaction-list-item-income-icon.blue>svg>path {
+    fill: #396AFF;
+}
+
+.transaction-list-item-income-icon.mint {
+    background-color: #DCFAF8;
+}
+
+.transaction-list-item-income-icon.mint>svg>path {
+    fill: #16DBCC;
+}
+
+.transaction-list-item-income-icon.pink {
+    background-color: #FFE0EB;
+}
+
+.transaction-list-item-income-icon.pink>svg>path {
+    fill: #FF82AC;
+}
+
+.transaction-list-item-amount-income {
+    color: #16DBAA;
+}
+
+.transaction-list-item-amount-expense {
+    color: #FE5C73;
+}
+
+
