@@ -116,3 +116,131 @@
 }
 
 
+.transaction-list-item-income-icon.green {
+    background-color: #EBF9EB;
+}
+
+.transaction-list-item-income-icon.green > svg > path {
+    fill: #4CAF50;
+}
+
+.transaction-list-item-income-icon.red {
+    background-color: #FFE7E7;
+}
+
+.transaction-list-item-income-icon.red > svg > path {
+    fill: #F44336;
+}
+
+.transaction-list-item-income-icon.purple {
+    background-color: #F4E7FF;
+}
+
+.transaction-list-item-income-icon.purple > svg > path {
+    fill: #9C27B0;
+}
+
+.transaction-list-item-income-icon.orange {
+    background-color: #FFF4E6;
+}
+
+.transaction-list-item-income-icon.orange > svg > path {
+    fill: #FF9800;
+}
+
+.transaction-list-item-income-icon.teal {
+    background-color: #E0F7FA;
+}
+
+.transaction-list-item-income-icon.teal > svg > path {
+    fill: #009688;
+}
+
+.transaction-list-item-income-icon.cyan {
+    background-color: #E0F4F8;
+}
+
+.transaction-list-item-income-icon.cyan > svg > path {
+    fill: #00BCD4;
+}
+
+.transaction-list-item-income-icon.pink {
+    background-color: #FDE0F4;
+}
+
+.transaction-list-item-income-icon.pink > svg > path {
+    fill: #E91E63;
+}
+
+.transaction-list-item-income-icon.lime {
+    background-color: #F9FBE7;
+}
+
+.transaction-list-item-income-icon.lime > svg > path {
+    fill: #CDDC39;
+}
+
+.transaction-list-item-income-icon.brown {
+    background-color: #EFEBE9;
+}
+
+.transaction-list-item-income-icon.brown > svg > path {
+    fill: #795548;
+}
+
+
+.transaction-list-item-income-icon.navy {
+    background-color: #E7EBFF;
+}
+
+.transaction-list-item-income-icon.navy > svg > path {
+    fill: #3F51B5;
+}
+
+.transaction-list-item-income-icon.olive {
+    background-color: #F1F8E9;
+}
+
+.transaction-list-item-income-icon.olive > svg > path {
+    fill: #8BC34A;
+}
+
+.transaction-list-item-income-icon.gold {
+    background-color: #FFFBE0;
+}
+
+.transaction-list-item-income-icon.gold > svg > path {
+    fill: #FFD700;
+}
+
+.transaction-list-item-income-icon.gray {
+    background-color: #F5F5F5;
+}
+
+.transaction-list-item-income-icon.gray > svg > path {
+    fill: #9E9E9E;
+}
+
+.transaction-list-item-income-icon.violet {
+    background-color: #EFE6FF;
+}
+
+.transaction-list-item-income-icon.violet > svg > path {
+    fill: #7B1FA2;
+}
+
+.transaction-list-item-income-icon.indigo {
+    background-color: #E8EAF6;
+}
+
+.transaction-list-item-income-icon.indigo > svg > path {
+    fill: #3F51B5;
+}
+
+.transaction-list-item-income-icon.coral {
+    background-color: #FFE7E0;
+}
+
+.transaction-list-item-income-icon.coral > svg > path {
+    fill: #FF7043;
+}
