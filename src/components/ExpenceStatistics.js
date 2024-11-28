@@ -66,10 +66,10 @@ const CustomPieChart = ({transactions}) => {
               data={data}
               dataKey="value"
               nameKey="name"
-              cx="65%"
+              cx="70%"
               cy="50%"
-              innerRadius={110}
-              outerRadius={180}
+              innerRadius={90}
+              outerRadius={150}
               label={({ percent, name }) => `${name} ${(percent * 100).toFixed(0)}%`}
               labelLine={false}
               paddingAngle={5}
@@ -86,5 +86,6 @@ const CustomPieChart = ({transactions}) => {
     </div>
   );
 };
+
 
 export default CustomPieChart;

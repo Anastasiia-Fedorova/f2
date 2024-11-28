@@ -6,6 +6,7 @@ import { getDashboard } from './store/actions/getDashboardAction';
 import { Provider, useDispatch, useSelector} from 'react-redux'
 import { useEffect} from 'react'
 import { getIncome } from './store/actions/getIncomeActions';
+import { getExpenses } from './store/actions/getExpensesActions';
 
 
 export let history = createBrowserHistory();
@@ -15,7 +16,8 @@ function App() {
   let dispatch = useDispatch();
   useEffect(() => {
       dispatch(getDashboard(localStorage.user_id));
-      dispatch(getIncome(localStorage.user_id))
+      dispatch(getIncome(localStorage.user_id));
+      dispatch(getExpenses(localStorage.user_id));
   }, []);
 
   const auth = useSelector((state) => state?.authReducer);

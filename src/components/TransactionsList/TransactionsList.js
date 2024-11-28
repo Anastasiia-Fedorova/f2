@@ -4,7 +4,7 @@ import {ReactComponent as Card} from '../../img/card.svg';
 import {AVAILABLE_INCOME_CATEGORIES, TRANSACTION_TYPE} from "../../constants/transactions";
 import "./transaction-list.css"
 
-export const TransactionsList = ({transactions, type}) => {
+export const IncomeTransactionsList = ({transactions=[], type}) => {
   return (
     <div className="transactions-list-root">
       <div className='transactions-list-header'>
@@ -14,9 +14,9 @@ export const TransactionsList = ({transactions, type}) => {
         <span>Amount</span>
       </div>
       <div className='transactions-list-items-list'>
-        {transactions.map((transaction, index) => {
+        {transactions?.map((transaction, index) => {
           const cardColor = AVAILABLE_INCOME_CATEGORIES
-            .find((category) => category.value === transaction.category)?.incomeColor;
+            .find((category) => category?.value === transaction.category)?.incomeColor;
           return (
             <div className='transactions-list-item' key={transaction.id}>
               <div
@@ -30,10 +30,10 @@ export const TransactionsList = ({transactions, type}) => {
                     <div className={`transaction-list-item-income-icon ${cardColor}`}>
                       <Card/>
                     </div>
-                    {transaction.category}
+                    {transaction?.category}
                   </div>}
               </div>
-              <div className='transaction-list-item-column'>{transaction.date}</div>
+              <div className='transaction-list-item-column'>{transaction?.date}</div>
               <div className='transaction-list-item-column'>
 
                 <span className={`transaction-list-item-amount-${type}`}>
